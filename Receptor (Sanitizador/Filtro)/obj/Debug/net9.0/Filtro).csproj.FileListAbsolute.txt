@@ -1,0 +1,14 @@
+C:\Users\Joseph\Desktop\INTEGRADOR_OP\Receptor (Sanitizador\Filtro)\bin\Debug\net9.0\Filtro).exe
+C:\Users\Joseph\Desktop\INTEGRADOR_OP\Receptor (Sanitizador\Filtro)\bin\Debug\net9.0\Filtro).deps.json
+C:\Users\Joseph\Desktop\INTEGRADOR_OP\Receptor (Sanitizador\Filtro)\bin\Debug\net9.0\Filtro).runtimeconfig.json
+C:\Users\Joseph\Desktop\INTEGRADOR_OP\Receptor (Sanitizador\Filtro)\bin\Debug\net9.0\Filtro).dll
+C:\Users\Joseph\Desktop\INTEGRADOR_OP\Receptor (Sanitizador\Filtro)\bin\Debug\net9.0\Filtro).pdb
+C:\Users\Joseph\Desktop\INTEGRADOR_OP\Receptor (Sanitizador\Filtro)\obj\Debug\net9.0\Filtro).GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Joseph\Desktop\INTEGRADOR_OP\Receptor (Sanitizador\Filtro)\obj\Debug\net9.0\Filtro).AssemblyInfoInputs.cache
+C:\Users\Joseph\Desktop\INTEGRADOR_OP\Receptor (Sanitizador\Filtro)\obj\Debug\net9.0\Filtro).AssemblyInfo.cs
+C:\Users\Joseph\Desktop\INTEGRADOR_OP\Receptor (Sanitizador\Filtro)\obj\Debug\net9.0\Filtro).csproj.CoreCompileInputs.cache
+C:\Users\Joseph\Desktop\INTEGRADOR_OP\Receptor (Sanitizador\Filtro)\obj\Debug\net9.0\Filtro).dll
+C:\Users\Joseph\Desktop\INTEGRADOR_OP\Receptor (Sanitizador\Filtro)\obj\Debug\net9.0\refint\Filtro).dll
+C:\Users\Joseph\Desktop\INTEGRADOR_OP\Receptor (Sanitizador\Filtro)\obj\Debug\net9.0\Filtro).pdb
+C:\Users\Joseph\Desktop\INTEGRADOR_OP\Receptor (Sanitizador\Filtro)\obj\Debug\net9.0\Filtro).genruntimeconfig.cache
+C:\Users\Joseph\Desktop\INTEGRADOR_OP\Receptor (Sanitizador\Filtro)\obj\Debug\net9.0\ref\Filtro).dll

@@ -1,0 +1,33 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Emisor (Recepcion)", "Emisor (Recepcion)\Emisor (Recepcion).csproj", "{14A7E5F4-E74F-4480-87E2-A187AA6C93EC}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Receptor (Sanitizador", "Receptor (Sanitizador", "{572E4049-A59A-4A8E-ADF4-D8650A8FC2F7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Filtro)", "Receptor (Sanitizador\Filtro)\Filtro).csproj", "{A97756F2-3307-48D8-88B9-AD157912E8F0}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{14A7E5F4-E74F-4480-87E2-A187AA6C93EC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{14A7E5F4-E74F-4480-87E2-A187AA6C93EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{14A7E5F4-E74F-4480-87E2-A187AA6C93EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{14A7E5F4-E74F-4480-87E2-A187AA6C93EC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A97756F2-3307-48D8-88B9-AD157912E8F0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A97756F2-3307-48D8-88B9-AD157912E8F0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A97756F2-3307-48D8-88B9-AD157912E8F0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A97756F2-3307-48D8-88B9-AD157912E8F0}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{A97756F2-3307-48D8-88B9-AD157912E8F0} = {572E4049-A59A-4A8E-ADF4-D8650A8FC2F7}
+	EndGlobalSection
+EndGlobal

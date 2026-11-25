@@ -1,0 +1,14 @@
+C:\Users\Joseph\Desktop\INTEGRADOR_OP\Emisor (Recepcion)\bin\Debug\net9.0\Emisor (Recepcion).exe
+C:\Users\Joseph\Desktop\INTEGRADOR_OP\Emisor (Recepcion)\bin\Debug\net9.0\Emisor (Recepcion).deps.json
+C:\Users\Joseph\Desktop\INTEGRADOR_OP\Emisor (Recepcion)\bin\Debug\net9.0\Emisor (Recepcion).runtimeconfig.json
+C:\Users\Joseph\Desktop\INTEGRADOR_OP\Emisor (Recepcion)\bin\Debug\net9.0\Emisor (Recepcion).dll
+C:\Users\Joseph\Desktop\INTEGRADOR_OP\Emisor (Recepcion)\bin\Debug\net9.0\Emisor (Recepcion).pdb
+C:\Users\Joseph\Desktop\INTEGRADOR_OP\Emisor (Recepcion)\obj\Debug\net9.0\Emisor (Recepcion).GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Joseph\Desktop\INTEGRADOR_OP\Emisor (Recepcion)\obj\Debug\net9.0\Emisor (Recepcion).AssemblyInfoInputs.cache
+C:\Users\Joseph\Desktop\INTEGRADOR_OP\Emisor (Recepcion)\obj\Debug\net9.0\Emisor (Recepcion).AssemblyInfo.cs
+C:\Users\Joseph\Desktop\INTEGRADOR_OP\Emisor (Recepcion)\obj\Debug\net9.0\Emisor (Recepcion).csproj.CoreCompileInputs.cache
+C:\Users\Joseph\Desktop\INTEGRADOR_OP\Emisor (Recepcion)\obj\Debug\net9.0\Emisor (Recepcion).dll
+C:\Users\Joseph\Desktop\INTEGRADOR_OP\Emisor (Recepcion)\obj\Debug\net9.0\refint\Emisor (Recepcion).dll
+C:\Users\Joseph\Desktop\INTEGRADOR_OP\Emisor (Recepcion)\obj\Debug\net9.0\Emisor (Recepcion).pdb
+C:\Users\Joseph\Desktop\INTEGRADOR_OP\Emisor (Recepcion)\obj\Debug\net9.0\Emisor (Recepcion).genruntimeconfig.cache
+C:\Users\Joseph\Desktop\INTEGRADOR_OP\Emisor (Recepcion)\obj\Debug\net9.0\ref\Emisor (Recepcion).dll
