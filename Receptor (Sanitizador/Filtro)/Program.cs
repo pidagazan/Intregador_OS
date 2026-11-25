@@ -31,7 +31,7 @@ namespace Receptor
             Console.WriteLine("Memoria (bytes): {0}",proc.WorkingSet64);
             Console.WriteLine("Tiempo CPU: {0}",proc.TotalProcessorTime);
             
-            Semaphore semaforo_compartido = new Semaphore(1,1,"semaforo_compartido");
+            Semaphore semaforo_compartido = new Semaphore(0,1,"semaforo_compartido");
             
             string path_log = @"./logs.txt";
 
@@ -113,44 +113,50 @@ namespace Receptor
                     }
                     if (pedido_recibido == "registro")
                     {
+                        try{
+                        
                         string respuesta = ("Mensaje del servidor: Ingresando a modo registro");
                         await writer.WriteLineAsync(respuesta);
 
                         Console.WriteLine("Modo recepcion de registro:"); 
+                        
                         byte[] buffer = new Byte[512];
 
-                        /// RECEPCION DE NOMBRE
-                        Thread.Sleep(1000);
-                        semaforo_compartido.WaitOne();
-
-                        await pipe_stream.ReadExactlyAsync(buffer,0,4);
+                        using var tiempo_max = new CancellationTokenSource(TimeSpan.FromSeconds(30));
+                        
+                        /// RECEPCION DE NOMBRE                                                                     
+                        
+                        await pipe_stream.ReadExactlyAsync(buffer,0,4,tiempo_max.Token);
                         Int32 largo_arreglo_nombre = BitConverter.ToInt32(buffer);
 
-                        await pipe_stream.ReadExactlyAsync(buffer,0,largo_arreglo_nombre);                   
+                        await pipe_stream.ReadExactlyAsync(buffer,0,largo_arreglo_nombre,tiempo_max.Token);                   
                         string? nombre = Encoding.UTF8.GetString(buffer,0,largo_arreglo_nombre);
                         // FIN DE RECEPCION NOMBRE                                                          
 
                         /// RECEPCION DE DNI                                        
-                        await pipe_stream.ReadExactlyAsync(buffer,0,4);                    
+                        await pipe_stream.ReadExactlyAsync(buffer,0,4,tiempo_max.Token);                    
                         Int32 largo_arreglo_dni = BitConverter.ToInt32(buffer);
 
-                        await pipe_stream.ReadExactlyAsync(buffer,0,largo_arreglo_dni);                    
+                        await pipe_stream.ReadExactlyAsync(buffer,0,largo_arreglo_dni,tiempo_max.Token);                    
                         string? dni = Encoding.UTF8.GetString(buffer,0,largo_arreglo_dni);
                         /// FIN DE RECEPCION DNI
                     
                         /// RECEPCION DE TARJETA
-                        await pipe_stream.ReadExactlyAsync(buffer,0,4); 
+                        await pipe_stream.ReadExactlyAsync(buffer,0,4,tiempo_max.Token); 
                         Int32 largo_arreglo_tarjeta = BitConverter.ToInt32(buffer);                   
                     
-                        await pipe_stream.ReadExactlyAsync(buffer,0,largo_arreglo_tarjeta);                    
+                        await pipe_stream.ReadExactlyAsync(buffer,0,largo_arreglo_tarjeta,tiempo_max.Token);                    
                         string? tarjeta = Encoding.UTF8.GetString(buffer,0,largo_arreglo_tarjeta);
                         string? tarjeta_enmascarada = enmascarar_tarjeta(tarjeta);
                         /// FIN DE TARJETA
-                    
+                        
+                       
+                            /// NO SE RECIBIO EN TIEMPo
+                        
                         Console.WriteLine("Los datos recibidos fueron: nombre: {0}",nombre);
                         Console.WriteLine("Los datos recibidos fueron: dni: {0}",dni);
                         Console.WriteLine("Los datos recibidos fueron: tarjeta: {0}",tarjeta_enmascarada);
-                        semaforo_compartido.Release();
+                        
                         ///Escritura a archivo log.txt
                         using (var stream_to_file = new FileStream(path_log,FileMode.Append,FileAccess.Write))
                         {
@@ -162,11 +168,18 @@ namespace Receptor
                     
                             await writer.WriteLineAsync("Registro recibido de forma exitosa");
                         }
-
+                        
                         }
 
                     }
-                }
+                    catch (OperationCanceledException)
+                        {
+                            Console.WriteLine("El cliente no ha contestado a tiempo, cerrando conexión");
+                            pipe_mensajeria.Dispose();
+                            pipe_stream.Dispose();
+                            Environment.Exit(1);
+                        }
+                }}
             }
             catch (ClienteCerrado)
             {

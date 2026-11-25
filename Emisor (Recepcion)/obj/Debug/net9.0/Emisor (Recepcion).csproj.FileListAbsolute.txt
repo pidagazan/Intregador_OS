@@ -12,3 +12,4 @@ C:\Users\Joseph\Desktop\INTEGRADOR_OP\Emisor (Recepcion)\obj\Debug\net9.0\refint
 C:\Users\Joseph\Desktop\INTEGRADOR_OP\Emisor (Recepcion)\obj\Debug\net9.0\Emisor (Recepcion).pdb
 C:\Users\Joseph\Desktop\INTEGRADOR_OP\Emisor (Recepcion)\obj\Debug\net9.0\Emisor (Recepcion).genruntimeconfig.cache
 C:\Users\Joseph\Desktop\INTEGRADOR_OP\Emisor (Recepcion)\obj\Debug\net9.0\ref\Emisor (Recepcion).dll
+C:\Users\Joseph\Desktop\INTEGRADOR_OP\Emisor (Recepcion)\obj\Debug\net9.0\Emisor (Recepcion).sourcelink.json

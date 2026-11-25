@@ -1,6 +1,7 @@
 ﻿using System.IO.Pipes;
 using System.Text;
 using System.Diagnostics;
+using System.Linq.Expressions;
 
 namespace Emisor
 {
@@ -90,7 +91,7 @@ namespace Emisor
             Console.WriteLine("Memoria (bytes): {0}",proc.WorkingSet64);
             Console.WriteLine("Tiempo CPU: {0}",proc.TotalProcessorTime);
             
-            Semaphore semaforo_compartido = new Semaphore(1,1,"semaforo_compartido");
+            Semaphore semaforo_compartido = new Semaphore(0,1,"semaforo_compartido");
             
             Console.WriteLine("Inicializando cliente");
 
@@ -101,9 +102,10 @@ namespace Emisor
             try
             {
 
-            pipe_mensajeria.Connect();
-            pipe_stream.Connect();
+                pipe_mensajeria.Connect();
+                pipe_stream.Connect();
             }
+            
             catch (Exception e)
             {
                 Console.WriteLine("Excepcion encontrada");
@@ -117,10 +119,10 @@ namespace Emisor
             
             string? ver_conectado = await reader.ReadLineAsync();
             Console.WriteLine(ver_conectado);
-             try
-            { 
+ 
             while (true)
             {
+            try{
                 string? pedido_mensaje = Console.ReadLine();
                 await writer.WriteLineAsync(pedido_mensaje);
 
@@ -144,39 +146,43 @@ namespace Emisor
                     }
                     if (pedido_mensaje == "registro")
                     {
-                        semaforo_compartido.WaitOne();
                         bool inputs_verificados = false;
                         string? nombre;
                         string? dni;
                         string? tarjeta;
+                        using var tiempo_max = new CancellationTokenSource(TimeSpan.FromSeconds(30));
                         do 
                         {
+                                if (tiempo_max.IsCancellationRequested)
+                                {
+                                    throw new Exception("Se cerró la conexión con el servidor");
+                                }
+                                                               
+                                Console.WriteLine("Ingrese un Nombre"); 
+                                nombre = Console.ReadLine();
+                        
+                                Console.WriteLine("Ingrese un DNI"); 
+                                dni = Console.ReadLine();
+
+                                Console.WriteLine("Ingrese su tarjeta"); 
+                                tarjeta = Console.ReadLine();
+
+                                if (!verificar_dni(dni) || !verificar_nombre(nombre) || !verificar_tarjeta(tarjeta))
+                                {
                             
-                            Console.WriteLine("Ingrese un Nombre"); 
-                            nombre = Console.ReadLine();
-                        
-                            Console.WriteLine("Ingrese un DNI"); 
-                            dni = Console.ReadLine();
+                                Console.WriteLine("Algunos de los datos ingresado no son validos");
+                                Console.WriteLine("Formato:");
+                                Console.WriteLine("DNI y tarjeta deben ser ingresados con puntos, solo de aceptan tarjetas de 16 dígitos:");
+                                Console.WriteLine("DNI: XXX.XXX.XXX");
+                                Console.WriteLine("Tarjeta:XXXX.XXXX.XXXX.XXXX");
 
-                            Console.WriteLine("Ingrese su tarjeta"); 
-                            tarjeta = Console.ReadLine();
-
-                            if (!verificar_dni(dni) || !verificar_nombre(nombre) || !verificar_tarjeta(tarjeta))
-                            {
-                            Console.WriteLine("Algunos de los datos ingresado no son validos");
-                            Console.WriteLine("Formato:");
-                            Console.WriteLine("DNI y tarjeta deben ser ingresados con puntos, solo de aceptan tarjetas de 16 dígitos:");
-                            Console.WriteLine("DNI: XXX.XXX.XXX");
-                            Console.WriteLine("Tarjeta:XXXX.XXXX.XXXX.XXXX");
-
-                            }
-                            else
-                            {
-                                inputs_verificados = true;
-                            }}
+                                }
+                                else        
+                                {
+                                    inputs_verificados = true;
+                                }
+                        }
                         while (!inputs_verificados);
-                        semaforo_compartido.Release();
-                        
                         
                         /// ENVIO DE NOMBRE
                         byte[] arreglo_byte_nombre = Encoding.UTF8.GetBytes(nombre);
@@ -207,26 +213,20 @@ namespace Emisor
                     Console.Clear();
                     Console.WriteLine(await reader.ReadLineAsync());
                     Thread.Sleep(3000);
-                    }                                               
+                    
                 }
-            }
-            }
+            }}
             catch (Exception e)
             {
                 Console.WriteLine("Excepcion encontrada");
                 Console.WriteLine("Cerrando programa");
                 pipe_mensajeria.Dispose();
                 pipe_mensajeria.Dispose();
-                Console.WriteLine(e);
+                Environment.Exit(1);
             }    
+            
+        }}}
+            
                 
                 }
                 
-                
-            }
-
-            
-
-    }
-    
-

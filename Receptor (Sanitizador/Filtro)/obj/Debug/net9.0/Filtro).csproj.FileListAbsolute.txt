@@ -12,3 +12,4 @@ C:\Users\Joseph\Desktop\INTEGRADOR_OP\Receptor (Sanitizador\Filtro)\obj\Debug\ne
 C:\Users\Joseph\Desktop\INTEGRADOR_OP\Receptor (Sanitizador\Filtro)\obj\Debug\net9.0\Filtro).pdb
 C:\Users\Joseph\Desktop\INTEGRADOR_OP\Receptor (Sanitizador\Filtro)\obj\Debug\net9.0\Filtro).genruntimeconfig.cache
 C:\Users\Joseph\Desktop\INTEGRADOR_OP\Receptor (Sanitizador\Filtro)\obj\Debug\net9.0\ref\Filtro).dll
+C:\Users\Joseph\Desktop\INTEGRADOR_OP\Receptor (Sanitizador\Filtro)\obj\Debug\net9.0\Filtro).sourcelink.json
